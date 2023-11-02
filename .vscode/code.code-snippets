@@ -1,0 +1,21 @@
+{
+	"Print to console": {
+		// "scope": "javascript,typescript",
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	},
+	"222": {
+		// "scope": "javascript,typescript",
+		"prefix": "log2",
+		"body": [
+			"console.log('$1');",
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+}
