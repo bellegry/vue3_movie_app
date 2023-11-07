@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './Home'
 import Movie from './Movie'
 import About from './About'
+import NotFound from './NotFound'
 
 export default createRouter({
   // Hash, History 모드 구별 가능
@@ -24,6 +25,10 @@ export default createRouter({
     {
       path: '/about',
       component: About
+    },
+    {
+      path: '/:notFound(.*)',   // 일치된 모든 경로들
+      component: NotFound
     },
 
   ]

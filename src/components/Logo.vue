@@ -7,7 +7,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import "~/scss/main";
 .logo {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
