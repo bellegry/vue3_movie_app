@@ -47,9 +47,9 @@ module.exports = {
           'css-loader',
           'postcss-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
-              additionalData: `@import "~/scss/main";`,
+              additionalData: `@import "~/scss/main.scss";`
             }
           }
         ]
