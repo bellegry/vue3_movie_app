@@ -10,7 +10,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
   // 경로에서 확장자 파일명이 없어도 인식 되도록 해줌
   resolve: {
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.vue', '...'],
     // 경로 별칭
     alias: {
       '~': path.resolve(__dirname, 'src'),
