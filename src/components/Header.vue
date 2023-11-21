@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Logo from '~/components/Logo'
 export default {
 components: {
@@ -50,15 +51,21 @@ components: {
     }
   },
   computed: {
-    image() {
-      return this.$store.state.about.image
-    },
-    name() {
-      return this.$store.state.about.name
-    }
+    ...mapState('about', [
+      'image',
+      'name'
+    ]),
+    // ...mapState('movie', [
+    //   'movies',
+    //   'loading',
+    //   'message',
+    //   'theMovie'
+    // ])
   },
   methods: {
     isMatch(path) {
+      // this.image
+      // this.name
       if(!path) return false
       console.log(this.$route)
       return path.test(this.$route.fullPath)

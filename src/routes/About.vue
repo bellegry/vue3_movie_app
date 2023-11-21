@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Loader from '~/components/Loader'
 export default {
   components: {
@@ -29,21 +30,32 @@ export default {
     }
   },
   computed: {
-    image() {
-      return this.$store.state.about.image
+    bong() {
+      // 전개연산자를 이용해서 작성해야 다른 함수를 추가할수 있음
     },
-    name() {
-      return this.$store.state.about.name
-    },
-    email() {
-      return this.$store.state.about.email
-    },
-    github() {
-      return this.$store.state.about.github
-    },
-    phone() {
-      return this.$store.state.about.phone
-    },
+    ...mapState('about', [
+      'image',
+      'name',
+      'email',
+      'github',
+      'phone'
+    ])
+    // mapState함수로 객체데이터를 전개연산자로 computed에 등록
+    // image() {
+    //   return this.$store.state.about.image
+    // },
+    // name() {
+    //   return this.$store.state.about.name
+    // },
+    // email() {
+    //   return this.$store.state.about.email
+    // },
+    // github() {
+    //   return this.$store.state.about.github
+    // },
+    // phone() {
+    //   return this.$store.state.about.phone
+    // },
   },
   // lifecycle에서는 비동기로 사용이 불가, 따라서 별도의 method를 만들어서 사용해야함
   mounted() {

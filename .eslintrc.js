@@ -12,7 +12,8 @@ module.exports = {
     // 'plugin:vue/vue3-recommended', // Lv3 가장 엄격함
     
     // js
-    'eslint:recommended'
+    'eslint:recommended',
+    'react-app'
 
   ],
   // es6문법을 es5로 인식하도록 변경해줌

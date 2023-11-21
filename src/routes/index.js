@@ -11,6 +11,12 @@ export default createRouter({
   // 검색시 #이 붙어서 검색되는거
   // 특정페이지 검색 시 페이지를 찾을 수 없다는걸 방지 가능
   history: createWebHashHistory(),
+
+  // 페이지 이동 시 스크롤의 위치가 무조건 상단으로 가도록
+  scrollBehavior() {
+    return { top: 0 }
+  },
+
   // page 구분
   // https://google.com/
   routes: [
