@@ -17,6 +17,9 @@
 <style lang="scss" scoped>
 .container {
   padding-top: 60px;
+  @include media-breakpoint-down(sm) {
+    padding-top: 20px;
+  }
 }
 
 h1 {
@@ -26,6 +29,9 @@ h1 {
   font-size: 80px;
   span {
     color: $primary;
+  }
+  @include media-breakpoint-down(sm) {
+      font-size: 56px;
   }
 }
 

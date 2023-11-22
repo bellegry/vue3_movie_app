@@ -86,7 +86,7 @@ export default {
             })
           }
         }
-      } catch (message) {
+      } catch ({message}) {
         commit('updateState', {
           // 검색시 영화의 목록은 있으나 코드에 문제가 있을시 초기화
           movies: [],          
@@ -131,25 +131,28 @@ export default {
 // 함수의 앞에 _를 붙이면 현재 페이지에서만 실행되는 함수라는 표기
 // _fetchMovie 함수로 따로 관리하는 이유 : 예외처리를 위함,
 // 복잡한 코드를 매번 새로 작성할 필요 없게 하기 위함
-function _fetchMovies(payload) {
-  const { title, type, year, page, id } = payload
-  const OMDB_API_KEY = '7035c60c'
-  const url = id 
-    ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}` 
-    : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
+// function _fetchMovies(payload) {
+//   const { title, type, year, page, id } = payload
+//   const OMDB_API_KEY = '7035c60c'
+//   const url = id 
+//     ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}` 
+//     : `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
   
-  return new Promise((resolve, reject) => {
-    axios.get(url)
-      .then(res => {
-        // payload 정보가 없는데 정상응답 처리되는것을 방지
-        if(res.data.Error) {
-          reject(res.data.Error)
-        }
-        resolve(res)
-      })
-      .catch(err => {
-        // error 메시지만 reject에 반환
-        reject(err.message)
-      })
-  })
+//   return new Promise((resolve, reject) => {
+//     axios.get(url)
+//       .then(res => {
+//         // payload 정보가 없는데 정상응답 처리되는것을 방지
+//         if(res.data.Error) {
+//           reject(res.data.Error)
+//         }
+//         resolve(res)
+//       })
+//       .catch(err => {
+//         // error 메시지만 reject에 반환
+//         reject(err.message)
+//       })
+//   })
+// }
+async function _fetchMovies(payload) {
+  return await axios.post('/.netlify/functions/movie', payload)
 }
