@@ -2,7 +2,8 @@ module.exports = {
   env: {
     // 코드 검사를 할 것인지 설정
     browser: true,
-    node: true
+    node: true,
+    jest: true
   },
   extends: [
     // 코드검사를 할 규칙 지정
